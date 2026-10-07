@@ -176,6 +176,7 @@ HTML_TEMPLATE = """
     <header>
         <h1>متجرك الرقمي والتقني الذكي</h1>
         <p>اكتشف أفضل المنتجات والحلول التقنية الموصى بها مع روابط مباشرة</p>
+        <meta name="mitgo-verification" content="4e121221-dc7c-4c1a-9cc1-de4ba4f1aca7" />
     </header>
 
     <div class="container">
