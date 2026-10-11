@@ -171,6 +171,7 @@ HTML_TEMPLATE = """
         }
     </style>
 </head>
+<meta name="mitgo-verification" content="4e121221-dc7c-4c1a-9cc1-de4ba4f1aca7" />
 <body>
 
     <header>
