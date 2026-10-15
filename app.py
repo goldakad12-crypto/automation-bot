@@ -123,4 +123,77 @@ HTML_TEMPLATE = """
         }
         .price-row {
             display: flex;
-            
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .price {
+            color: var(--success);
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .btn {
+            background-color: var(--btn-bg);
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--btn-hover);
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid #334155;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>متجرك الرقمي والتقني الذكي</h1>
+        <p>اكتشف أفضل المنتجات والحلول التقنية الموصى بها مع روابط مباشرة</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            {% for p in products %}
+            <div class="card">
+                <img src="{{ p.image }}" alt="{{ p.title }}">
+                <div class="card-content">
+                    <span class="category">{{ p.category }}</span>
+                    <h3>{{ p.title }}</h3>
+                    <p>{{ p.description }}</p>
+                    <div class="price-row">
+                        <span class="price">{{ p.price }}</span>
+                    </div>
+                    <a href="{{ p.link }}" target="_blank" class="btn">معاينة أو طلب المنتج</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة &copy; 2026 - منصة الويب السحابية الآمنة
+    </footer>
+
+</body>
+</html>
+"""
+
+
+@app.route("/")
+def home():
+  return render_template_string(HTML_TEMPLATE, products=PRODUCTS)
+
+
+if __name__ == "__main__":
+  app.run(host="0.0.0.0", port=10000)
